@@ -3,6 +3,9 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Perguntas;
+import entities2.Respostas;
+
 public class Pesquisa {
 	
 	public static void main(String[] args) {
@@ -10,45 +13,37 @@ public class Pesquisa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner (System.in);
 		
-		String empresa, addPergunta, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7, pergunta8, pergunta9, pergunta10; 
-		int numPergunta;
+		String empresa;
+		int numPerg;
 		
-		numPergunta=1;
-				
-		System.out.println("Criação de quastionário com até 10 perguntas");
+		System.out.println("- Criação de questionário -");
 		System.out.println(" ");
 		System.out.print("Digite o nome da empresa: ");
 		empresa=sc.nextLine();
 		System.out.println(" ");
-		
-		numPergunta=1;	
-		
-		System.out.printf("Digite a pergunta nº " +numPergunta);
-		System.out.println(" ");
-		System.out.print("Pergunta: ");
-		pergunta1=sc.nextLine();
+		System.out.print("Digite a quantidade de perguntas do questionário: ");
+		numPerg = sc.nextInt();
 		System.out.println(" ");
 		
-		do {
+		Perguntas[] vect = new Perguntas[numPerg];
 		
-		System.out.print("Deseja adicionar uma pergunta ao questionário? (Sim/Não): ");
-		addPergunta=sc.nextLine();
-		System.out.println(" ");
+		for (int i=0; i<numPerg+1; i++) {
+			System.out.print("Digite a próxima pergunta do questionário: ");
+			System.out.println(" ");
+			String perguntas = sc.nextLine();
+			vect[i] = new Perguntas(perguntas);
+			}
 		
-			if (addPergunta=="Sim") {
-					numPergunta++;
-					System.out.printf("Digite a pergunta nº " +numPergunta);
-					System.out.println(" ");
-					System.out.println("Pergunta: ");
-					System.out.println(" ");
-					pergunta2=sc.nextLine();			
-		
-				}
+		for (int i=0; i<numPerg+1; i++) {
+			System.out.print(vect[i].getPerguntas());
+			System.out.println(" ");
+			System.out.print("Digite sua resposta: ");
+			System.out.println(" ");
+			String respostas = sc.nextLine();
+			vect[i] = new Respostas(respostas);
 			
+			}
 		
-		}while (addPergunta!="Não");
-
-		sc.close();	
-		
+	sc.close();	
 }
 }
