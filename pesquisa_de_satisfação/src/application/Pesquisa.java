@@ -27,21 +27,25 @@ public class Pesquisa {
 		
 		Perguntas[] vect = new Perguntas[numPerg];
 		
-		for (int i=0; i<numPerg+1; i++) {
+		for (int i=0; i<numPerg; i++) {
+			sc.nextLine();
 			System.out.print("Digite a próxima pergunta do questionário: ");
-			System.out.println(" ");
 			String perguntas = sc.nextLine();
 			vect[i] = new Perguntas(perguntas);
 			}
 		
-		for (int i=0; i<numPerg+1; i++) {
+		System.out.println(" ");
+		System.out.println("- Responda o questionário abaixo: -");
+				
+		Respostas[] vect1 = new Respostas[numPerg];
+		
+		for (int i=0; i<numPerg; i++) {
+			sc.nextLine();
 			System.out.print(vect[i].getPerguntas());
 			System.out.println(" ");
 			System.out.print("Digite sua resposta: ");
-			System.out.println(" ");
 			String respostas = sc.nextLine();
-			vect[i] = new Respostas(respostas);
-			
+			vect1[i] = new Respostas(respostas);
 			}
 		
 	sc.close();	
