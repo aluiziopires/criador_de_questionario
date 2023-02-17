@@ -13,8 +13,8 @@ public class Pesquisa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner (System.in);
 		
-		String empresa;
-		int numPerg;
+		String empresa, nome, cidade, telefone;
+		int numPerg, idade;
 		
 		System.out.println("- Criação de questionário -");
 		System.out.println(" ");
@@ -36,6 +36,20 @@ public class Pesquisa {
 		
 		System.out.println(" ");
 		System.out.println("- Responda o questionário abaixo: -");
+		System.out.println(" ");
+		System.out.print("Nome: ");
+		nome=sc.nextLine();
+		System.out.println(" ");
+		System.out.print("Idade: ");
+		idade=sc.nextInt();
+		System.out.println(" ");
+		sc.nextLine();
+		System.out.print("Cidade: ");
+		cidade=sc.nextLine();
+		System.out.println(" ");
+		System.out.print("Telefone com DDD: ");
+		telefone=sc.nextLine();
+		System.out.println(" ");
 				
 		Respostas[] vect1 = new Respostas[numPerg];
 		
@@ -48,6 +62,28 @@ public class Pesquisa {
 			vect1[i] = new Respostas(respostas);
 			}
 		
+		System.out.println(" ");
+		System.out.println("- Questionário respondido -");
+		System.out.println(" ");
+		System.out.printf("Empresa solicitante: " +empresa); 
+		System.out.println(" ");
+		System.out.printf("Entrevistado: " +nome);
+		System.out.println(" ");
+		System.out.printf("Idade: ", idade);
+		System.out.println(" ");
+		System.out.printf("Cidade: " +cidade);
+		System.out.println(" ");
+		System.out.printf("Telefone: " +telefone);
+		System.out.println(" ");
+		
+		for (int i=0; i<numPerg; i++) {
+			sc.nextLine();
+			System.out.print(vect[i].getPerguntas());
+			System.out.println(" ");
+			System.out.print(vect1[i].getRespostas());
+			System.out.println(" ");
+			}
+			
 	sc.close();	
 }
 }
