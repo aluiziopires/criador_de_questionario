@@ -80,20 +80,16 @@ public class Pesquisa {
 		System.out.printf("Entrevistador, aperte ENTER para continuar.");
 		System.out.println(" ");
 		sc.nextLine();
-		System.out.printf("Gostaria de avaliar (0 a 10) as respostas do entrevistado? (s/n)");
-		String avaliar = sc.nextLine();
-		System.out.println(" ");
-		
-		if (avaliar=="s") {
-			
-			Notas[] vect2 = new Notas[numPerg];
-			
+				
+		Notas[] vect2 = new Notas[numPerg];
+								
 			for (int i=0; i<numPerg; i++) {
-				sc.nextLine();
-				System.out.print(vect[i].getPerguntas()+" ");
-				System.out.print(vect1[i].getRespostas());
+				System.out.printf(vect[i].getPerguntas()+" ");
+				System.out.printf(vect1[i].getRespostas());
+				System.out.println(" ");
 				System.out.print("Avaliação para a resposta (0 a 10): ");
 				notas=sc.nextInt();
+				System.out.println(" ");
 				vect2[i] = new Notas(notas);
 				}	
 			
@@ -112,35 +108,21 @@ public class Pesquisa {
 			System.out.println(" ");
 			
 			for (int i=0; i<numPerg; i++) {
-				System.out.print(vect[i].getPerguntas()+" ");
-				System.out.print(vect1[i].getRespostas());
+				System.out.printf(vect[i].getPerguntas()+" ");
+				System.out.printf(vect1[i].getRespostas());
+				System.out.println(" ");
 				}
 			
-			System.out.printf("Média da avaliação: ");
-		}
-		
-		else {
-			System.out.println(" ");
-			System.out.println("- Questionário respondido -");
-			System.out.println(" ");
-			System.out.printf("Empresa solicitante: " +empresa); 
-			System.out.println(" ");
-			System.out.printf("Entrevistado: " +nome);
-			System.out.println(" ");
-			System.out.printf("Idade: " +idade);
-			System.out.println(" ");
-			System.out.printf("Cidade: " +cidade);
-			System.out.println(" ");
-			System.out.printf("Telefone: " +telefone);
-			System.out.println(" ");
-			
+			int soma = 0;
 			for (int i=0; i<numPerg; i++) {
-				System.out.print(vect[i].getPerguntas()+" ");
-				System.out.print(vect1[i].getRespostas());
-				}
-
-		}
+				soma += vect2[i].getNotas();
+			}
+			
+			double media = soma/numPerg;
+			
+			System.out.printf("Média da avaliação: %.2f%n", media);
 								
 	sc.close();	
 }
 }
+
